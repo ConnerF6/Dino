@@ -4,7 +4,8 @@ food = {
     "carnivore": ["bear", "cow", "deer", "mammoth", "chicken", "fish", "another dinosaur", "horses"],
     "herbivore": ["grass", "tree bark", "berries", "leaves", "fruit", "seeds", "lettuce"],
     "omnivore": ["bear", "cow", "deer", "mammoth", "chicken", "fish", "another dinosaur", "horses", "grass", "tree bark", "berries", "leaves", "fruit", "insects", "seeds", "lettuce"],
-    "inedible": ["trash", "rotten meat"]}
+    "inedible": ["trash", "rotten meat", "anvil", "metal pan"]
+    }
 
 class Dinosaur(object):
     def __init__(self, name, species, diet, age, weight):
@@ -18,7 +19,7 @@ class Dinosaur(object):
         return f"{self.name}: ROAARRRRRRRRRRRR"
     
     def give_dino_meal(self, meal):
-        # Check if the food is suitable for the dinosaur's diet
+
         if meal in food[self.diet]:
             return f"{self.name} eats {meal}! Yum!"
         elif meal in food["inedible"]:
@@ -42,7 +43,6 @@ class Dinosaur(object):
     def dino_info(self):
         return f"{self.name} is a {self.age}-year-old {self.species} that weighs {self.weight} lbs and is a {self.diet}."
 
-# Creating dinosaurs
 T_Rex = Dinosaur("Terry", "T-Rex", "carnivore", 26, 13200)
 Bronto = Dinosaur("Benny", "Brontosaurus", "herbivore", 80, 33000)
 Stego = Dinosaur("Spike", "Stegosaurus", "herbivore", 12, 5500)
@@ -58,13 +58,11 @@ Allo = Dinosaur("Alex", "Allosaurus", "carnivore", 27, 8400)
 
 Dinosaurs = [T_Rex, Bronto, Stego, Trike, Veloci, Ankylo, Spino, Pachy, Compy, Iguano, Ptero, Allo]
 
-# Printing dinosaur info, meal, and roar
 for Dino in Dinosaurs:
     print(Dino.dino_info())
     print(Dino.dino_eat())
     print(Dino.dino_roar(), "\n")
 
-# Testing the give_dino_meal function
 print(T_Rex.give_dino_meal("bear"))
 print(Bronto.give_dino_meal("grass"))
 print(Ptero.give_dino_meal("seeds"))
