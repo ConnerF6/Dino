@@ -1,11 +1,25 @@
 import random as ran
 
 food = {
-    "carnivore": ["bear", "cow", "deer", "mammoth", "chicken", "fish", "another dinosaur", "horses"],
-    "herbivore": ["grass", "tree bark", "berries", "leaves", "fruit", "seeds", "lettuce"],
-    "omnivore": ["bear", "cow", "deer", "mammoth", "chicken", "fish", "another dinosaur", "horses", "grass", "tree bark", "berries", "leaves", "fruit", "insects", "seeds", "lettuce"],
-    "inedible": ["trash", "rotten meat", "anvil", "metal pan"]
-    }
+    "carnivore": [
+        "bear", "cow", "deer", "mammoth", "chicken", "fish", "another dinosaur", "horses", 
+        "pigs", "rabbits", "goats", "wild boar", "lizards", "snakes", "wolves", "kangaroos"
+    ],
+    "herbivore": [
+        "grass", "tree bark", "berries", "leaves", "fruit", "seeds", "lettuce", 
+        "ferns", "shrubs", "water plants", "bamboo", "flowers", "moss", "herbs", "roots"
+    ],
+    "omnivore": [
+        "bear", "cow", "deer", "mammoth", "chicken", "fish", "another dinosaur", "horses", 
+        "grass", "tree bark", "berries", "leaves", "fruit", "insects", "seeds", "lettuce", 
+        "roots", "mushrooms", "small mammals", "turtles", "eggs", "frogs", "crustaceans", 
+        "carrion", "wild honey", "acorns", "nuts"
+    ],
+    "inedible": [
+        "trash", "rotten meat", "an anvil", "a metal pan", "a plastic bottle", "rocks", "glass", 
+        "concrete", "shoes", "a metal chain", "a rubber tire", "an old boot", "car parts", "electronics"
+    ]
+}
 
 class Dinosaur(object):
     def __init__(self, name, species, diet, age, weight):
@@ -19,7 +33,6 @@ class Dinosaur(object):
         return f"{self.name}: ROAARRRRRRRRRRRR"
     
     def give_dino_meal(self, meal):
-
         if meal in food[self.diet]:
             return f"{self.name} eats {meal}! Yum!"
         elif meal in food["inedible"]:
@@ -62,9 +75,9 @@ for Dino in Dinosaurs:
     print(Dino.dino_info())
     print(Dino.dino_eat())
     print(Dino.dino_roar(), "\n")
-
-print(T_Rex.give_dino_meal("bear"))
-print(Bronto.give_dino_meal("grass"))
-print(Ptero.give_dino_meal("seeds"))
-print(T_Rex.give_dino_meal("trash"))
-print(T_Rex.give_dino_meal("rotten meat"))
+    
+    #for category in food:
+    #    for item in food[category]:
+    #        print(Dino.give_dino_meal(item))
+    #print("\n")
+    #Prints out every dinosaur trying to eat every meal lol
